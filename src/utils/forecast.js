@@ -8,7 +8,9 @@ const forecast = (long, lat, callback) => {
         } else if(body.error){
             callback(`Bad coordinates${url}, enter another location`, undefined);        
         }else{
-            callback(undefined,`The tempertature is ${body.currently.temperature} with ${body.currently.precipProbability}% of rainfall.`);    
+            callback(undefined,`${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees
+                out with ${body.currently.precipProbability}% of rainfall.The high today is 
+                ${body.daily.data[0].temperatureHigh}  and the low is ${body.daily.data[0].temperatureLow} `);    
         }
     })
 }
